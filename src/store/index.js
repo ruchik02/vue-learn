@@ -2,6 +2,8 @@ import { createStore } from "vuex";
 const store = createStore({
     state:{
         count: 0,
+        name: "Ruchika",
+        age: 24
 
     },
     mutations: {
@@ -21,7 +23,9 @@ const store = createStore({
         }
     },
     getters: {
-        getCount: (state) => state.count
+        getCount: (state) => state.count,
+        upperCaseName: (state) => state.name.toUpperCase(),
+        ageInFiveYears: (state) => state.age+5,
     }
 })
 export default store;

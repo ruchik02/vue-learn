@@ -1,10 +1,14 @@
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters, mapState } from 'vuex';
 export default {
     computed:{
-        ...mapGetters(["getCount"]),
-        count(){
-            return this.getCount;
+        ...mapState(["count"]),
+        ...mapGetters([ "upperCaseName", "ageInFiveYears"]),
+        name(){
+            return this.upperCaseName;
+        },
+        age(){
+            return this.ageInFiveYears;
         }
         // alternative
     //     count() {
@@ -26,6 +30,12 @@ export default {
             <v-card-title>Vuex Counter</v-card-title>
             <v-card-text>
                 <h2>{{ count }}</h2>
+            </v-card-text>
+            <v-card-text>
+                <p>{{ name }}</p>
+            </v-card-text>
+            <v-card-text>
+                <p>{{ age }}</p>
             </v-card-text>
             <v-card-actions>
                 <v-btn @click="increment" color="primary">+</v-btn>
