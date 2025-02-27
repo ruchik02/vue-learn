@@ -13,7 +13,12 @@ const store = createStore({
           }
     },
     actions: {
-
+        increment({commit}){
+            commit("increment");
+        },
+        decrement({commit}){
+            commit("decrement");
+        }
     },
     getters: {
         getCount: (state) => state.count
